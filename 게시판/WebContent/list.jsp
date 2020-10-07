@@ -10,6 +10,7 @@
 <meta name="keywords" content="HTML,CSS,XML,JavaScript">
 <meta name="author" content="Bruce">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/CSS" href="css/board.css">
 <title>혜멍이네 게시판</title>
 </head>
 <body>
@@ -76,7 +77,7 @@
 
 %>
 </table>
-	<a href="write.jsp">글쓰기</a>
+	<input type="button" value="글쓰기" name="wirte" onclick="location.href='write.jsp'">
 	
 </body>
 </html>

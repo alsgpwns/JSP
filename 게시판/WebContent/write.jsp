@@ -10,6 +10,7 @@
 <meta name="keywords" content="HTML,CSS,XML,JavaScript">
 <meta name="author" content="Bruce">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>글쓰기</title>
 </head>
 <body>

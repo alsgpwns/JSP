@@ -10,13 +10,14 @@
 <meta name="keywords" content="HTML,CSS,XML,JavaScript">
 <meta name="author" content="Bruce">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>내용 보기</title>
 </head>
 <body>
 	
 <%!
 		private final String driver="com.mysql.cj.jdbc.Driver";
-		private final String url ="jdbc:mysql://localhost:3306/object?useSSl=false&serverTimezone=UCT";
+		private final String url ="jdbc:mysql://localhost:3306/object?useSSL=false&serverTimezone=UTC";
 		private final String user="root";
 		private final String pwd="1234";
 %>
@@ -25,7 +26,9 @@
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	String query = "select title,name,wTime,contents from board where no="+no;
+	String query = "select title,name,wTime,contents,rcnt,password from board where no="+no;
+	int count = 0;
+	String pw =null;
 %>
 
 
@@ -37,7 +40,8 @@
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(query);
 		while(rs.next()){
-			
+		count = rs.getInt("rcnt");		
+		pw=rs.getString("password");
 %>
 
 	<table border="1">
@@ -55,14 +59,32 @@
 		<td><%=rs.getString("wTime") %></td>
 	</tr>
 	<tr>
-		<td colspan="2"><textarea cols="50" rows="10" style="overflow-x:hidden; overflow-y:scroll;resize: none;"><%=rs.getString("contents") %></textarea></td>
+		<td colspan="2"><%=rs.getString("contents") %></td>
 	</tr>
 	</table>
+	
 	<input type="button" value="목록" onclick="location.href='list.jsp'">
-	<input type="button" value="수정">
-	<input type="button" value="삭제">
+	
+	<form method="post" action="inputPw.jsp">
+	<input type="hidden" name="no" value="<%=no %>">
+	<input type="hidden" name="pw" value="<%=pw %>">
+	<input type="hidden" name="menu" value="1">
+	<input type="submit" value="수정">
+	</form>
+	
+	<form method="post" action="inputPw.jsp">
+	<input type="hidden" name="no" value="<%=no %>">
+	<input type="hidden" name="pw" value="<%=pw %>">
+	<input type="hidden" name="menu" value="2">
+	<input type="submit" value="삭제">
+	</form>
+	
+
 <%
 		}
+		count++;
+		query = "update board set rcnt= "+ count +" where no="+no;
+		stmt.executeUpdate(query);
 	} catch(ClassNotFoundException e){
 		System.out.println("Driver load error!");
 	} catch(SQLException e){
