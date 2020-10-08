@@ -10,18 +10,26 @@
 <meta name="keywords" content="HTML,CSS,XML,JavaScript">
 <meta name="author" content="Bruce">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/CSS" href="css/board.css">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/CSS" href="css/list.css">
 <title>혜멍이네 게시판</title>
 </head>
 <body>
+
+<header>
+		<h1><img src="img/block_logo.jpg" alt="logo" id="logoimg"></h1> <h3 id="logo"> Welcome to the<br>BlockChain Border!</h3>
+</header>
+	
+<main>
 	<table border="1">
-	<caption>목록</caption>
-	<tr>
-		<td>번호</td>
-		<td>제목</td>
-		<td>작성자</td>
-		<td>작성일</td>
-		<td>조회수</td>
+	<caption>List</caption>
+	<tr id="firstTr">
+		<td id="no"> no </td>
+		<td id="title"> title </td>
+		<td id="name"> name </td>
+		<td id="date"> date </td>
+		<td id="view"> views </td>
 	</tr>
 
 		
@@ -76,8 +84,50 @@
 
 
 %>
-</table>
-	<input type="button" value="글쓰기" name="wirte" onclick="location.href='write.jsp'">
+	</table>
+		<input type="button" value="Wirte" name="wirte" id="WriteButton" onclick="location.href='write.jsp'">
+</main>
+	
+<footer>
+	<section class="links" id="link1">
+		<h3>Random Stuff</h3>
+		<ul class="style2">
+			<li><a href="#">Etiam feugiat condime</a></li>
+			<li><a href="#">Aliquam imperdiet first</a></li>
+			<li><a href="#">Sed porttitor cras in erat</a></li>
+			<li><a href="#">Felis varius pellentesque</a></li>
+			<li><a href="#">Nullam scelerisque second</a></li>
+		</ul>
+	</section>
+
+	<section class="links" id="link2">
+		<h3>Random Stuff</h3>
+		<ul class="style2">
+			<li><a href="#">Etiam feugiat condime</a></li>
+			<li><a href="#">Aliquam imperdiet first</a></li>
+			<li><a href="#">Sed porttitor cras in erat</a></li>
+			<li><a href="#">Felis varius pellentesque</a></li>
+			<li><a href="#">Nullam scelerisque second</a></li>
+		</ul>
+	</section>
+
+	
+
+	<section class="contact">
+		<h3>Contact Us</h3>
+		<a href="https://hye-jun.netlify.app/">Developer's page</a>
+		<p>BCN LAB, Building D <br />Hongik University<br />Sejong City • South Korea<br />
+		(800) 555-0000</p>
+	</section>
+
+	<div id="copyright">
+		<ul>
+			<li>© Untitled. All rights reserved 　|</li>
+			
+			<li>　Design: Hyejun-min</li>
+		</ul>
+	</div>
+</footer>
 	
 </body>
 </html>

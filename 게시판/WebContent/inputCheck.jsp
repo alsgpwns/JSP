@@ -10,7 +10,7 @@
 <meta name="keywords" content="HTML,CSS,XML,JavaScript">
 <meta name="author" content="Bruce">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" type="text/CSS" href="css/board.css">
 <title>edit</title>
 </head>
 <body>
